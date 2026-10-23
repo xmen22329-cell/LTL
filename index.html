@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>GIAY NEW - Giày chính hãng</title>
+
+  <meta
+    name="description"
+    content="GIAY NEW - Cửa hàng giày thể thao, sneaker và thời trang."
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header class="header">
+    <div class="container header-inner">
+
+      <a href="#" class="logo" onclick="goHome()">
+        GIAY NEW<span>.</span>
+      </a>
+
+      <nav class="nav">
+        <a href="#products">Sản phẩm</a>
+        <a href="#categories">Danh mục</a>
+        <a href="#about">Về chúng tôi</a>
+        <a href="#contact">Liên hệ</a>
+      </nav>
+
+      <div class="header-actions">
+
+        <button
+          class="icon-btn"
+          id="searchBtn"
+          aria-label="Tìm kiếm"
+        >
+          🔍
+        </button>
+
+        <button class="cart-btn" id="cartBtn">
+          🛒
+          <span id="cartCount">0</span>
+        </button>
+
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- ================= SEARCH ================= -->
+  <div class="search-box" id="searchBox">
+
+    <div class="container search-inner">
+
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Tìm tên giày..."
+        autocomplete="off"
+      >
+
+      <button id="closeSearch">✕</button>
+
+    </div>
+
+  </div>
+
+
+  <!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="container hero-inner">
+
+    <div class="hero-content">
+
+      <span class="hero-label">
+        GIAY NEW COLLECTION 2026
+      </span>
+
+      <h1>
+        STEP<br>
+        <strong>YOUR STYLE.</strong>
+      </h1>
+
+      <p>
+        Khám phá những mẫu giày thời trang cao cấp,
+        được tuyển chọn dành cho phong cách của bạn.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#products" class="btn btn-dark">
+          KHÁM PHÁ SẢN PHẨM
+        </a>
+
+        <a href="#categories" class="btn btn-light">
+          XEM DANH MỤC
+        </a>
+      </div>
+
+    </div>
+
+
+    <div class="hero-shoe">
+
+      <div class="hero-circle"></div>
+
+      <img
+        class="hero-product-image"
+        src="assets/images/ảnh all.jpg"
+        alt="GIAY NEW Collection"
+      >
+
+      <div class="hero-brand">
+        GIAY NEW
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+  <!-- ================= CATEGORIES ================= -->
+  <section class="categories" id="categories">
+
+    <div class="container">
+
+      <div class="section-heading">
+
+        <div>
+          <span class="section-label">
+            SHOP BY CATEGORY
+          </span>
+
+          <h2>Danh mục</h2>
+        </div>
+
+      </div>
+
+
+      <div class="category-grid">
+
+        <!-- GUCCI -->
+        <button
+          class="category-card"
+          onclick="filterCategory('GUCCI')"
+        >
+        <img src="assets/images/gucci-ace.webp" alt="GUCCI">
+          <h3>GUCCI</h3>
+          <p>Phong cách cao cấp</p>
+        </button>
+
+
+        <!-- NIKE -->
+        <button
+          class="category-card"
+          onclick="filterCategory('NIKE')"
+        >
+        <img src="assets/images/nike.webp" alt="NIKE">
+          <h3>NIKE</h3>
+          <p>Thể thao & năng động</p>
+        </button>
+
+
+        <!-- DIOR -->
+        <button
+          class="category-card"
+          onclick="filterCategory('Dior')"
+        >
+          <img src="assets/images/dior.webp" alt="DIOR">
+          <h3>DIOR</h3>
+          <p>Lịch lãm & sang trọng</p>
+        </button>
+
+
+        <!-- YSL -->
+        <button
+          class="category-card"
+          onclick="filterCategory('YSL')"
+        >
+          <img src="assets/images/ysl.webp" alt="YSL">
+          <h3>YSL</h3>
+          <p>Thời trang cao cấp</p>
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= PRODUCTS ================= -->
+  <section
+    class="products-section"
+    id="products"
+  >
+
+    <div class="container">
+
+      <div class="section-heading">
+
+        <div>
+
+          <span class="section-label">
+            OUR PRODUCTS
+          </span>
+
+          <h2>Sản phẩm</h2>
+
+        </div>
+
+
+        <div class="product-controls">
+
+          <!-- CATEGORY FILTER -->
+          <select
+            id="categoryFilter"
+            onchange="applyFilters()"
+          >
+
+            <option value="all">
+              Tất cả sản phẩm
+            </option>
+
+            <option value="GUCCI">
+              GUCCI
+            </option>
+
+            <option value="NIKE">
+              NIKE
+            </option>
+
+            <option value="Dior">
+              DIOR
+            </option>
+
+            <option value="YSL">
+              YSL
+            </option>
+
+          </select>
+
+
+          <!-- SORT -->
+          <select
+            id="sortSelect"
+            onchange="applyFilters()"
+          >
+
+            <option value="default">
+              Sắp xếp
+            </option>
+
+            <option value="price-low">
+              Giá thấp → cao
+            </option>
+
+            <option value="price-high">
+              Giá cao → thấp
+            </option>
+
+            <option value="name">
+              Tên A → Z
+            </option>
+
+          </select>
+
+        </div>
+
+      </div>
+
+
+      <!-- PRODUCT LIST -->
+      <div
+        id="productGrid"
+        class="product-grid"
+      ></div>
+
+
+      <!-- EMPTY -->
+      <div
+        id="emptyProducts"
+        class="empty-products"
+      >
+        Không tìm thấy sản phẩm.
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= PROMO ================= -->
+  <section class="promo">
+
+    <div class="container promo-inner">
+
+      <div>
+
+        <span class="section-label">
+          SPECIAL OFFER
+        </span>
+
+        <h2>
+          GIẢM 10% CHO<br>
+          ĐƠN HÀNG ĐẦU TIÊN
+        </h2>
+
+        <p>
+          Sử dụng mã <strong>WELCOME10</strong>
+        </p>
+
+      </div>
+
+      <a
+        href="#products"
+        class="btn btn-light"
+      >
+        Khám phá ngay
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= ABOUT ================= -->
+  <section
+    class="about"
+    id="about"
+  >
+
+    <div class="container about-grid">
+
+      <div>
+
+        <span class="section-label">
+          ABOUT US
+        </span>
+
+        <h2>
+          Chúng tôi giúp bạn
+          tìm được đôi giày phù hợp.
+        </h2>
+
+      </div>
+
+
+      <div>
+
+        <p>
+          GIAY NEW là biểu tượng cho gu thẩm mỹ
+          sang trọng, cá tính và đẳng cấp hiện đại
+          của phái mạnh.
+        </p>
+
+        <p>
+          Các thiết kế GIAY NEW hội tụ đủ các yếu tố
+          về chất lượng, vẻ đẹp tinh tế cùng phong cách
+          hiện đại.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= FOOTER ================= -->
+  <footer
+    class="footer"
+    id="contact"
+  >
+
+    <div class="container footer-grid">
+
+      <div>
+
+        <div class="footer-logo">
+          GIAY NEW<span>.</span>
+        </div>
+
+        <p>
+          Sneaker & footwear store.
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h4>Liên kết</h4>
+
+        <a href="#products">
+          Sản phẩm
+        </a>
+
+        <a href="#categories">
+          Danh mục
+        </a>
+
+        <a href="#about">
+          Về chúng tôi
+        </a>
+
+      </div>
+
+
+      <div>
+
+        <h4>Hỗ trợ</h4>
+
+        <a href="#">
+          Chính sách đổi trả
+        </a>
+
+        <a href="#">
+          Chính sách giao hàng
+        </a>
+
+        <a href="#">
+          Câu hỏi thường gặp
+        </a>
+
+      </div>
+
+
+      <div>
+
+        <h4>Liên hệ</h4>
+
+        <p>
+          📞 0123 456 789
+        </p>
+
+        <p>
+          ✉️ hello@giaynew.vn
+        </p>
+
+        <p>
+          📍 Hà Nội, Việt Nam
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+      © 2026 GIAY NEW All rights reserved.
+    </div>
+
+  </footer>
+
+
+  <!-- ================= PRODUCT MODAL ================= -->
+  <div
+    class="modal"
+    id="productModal"
+  >
+
+    <div
+      class="modal-overlay"
+      onclick="closeProductModal()"
+    ></div>
+
+
+    <div class="modal-content">
+
+      <button
+        class="modal-close"
+        onclick="closeProductModal()"
+      >
+        ✕
+      </button>
+
+      <div id="productDetail"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ================= CART ================= -->
+  <div
+    class="cart-overlay"
+    id="cartOverlay"
+  ></div>
+
+
+  <aside
+    class="cart-drawer"
+    id="cartDrawer"
+  >
+
+    <div class="cart-header">
+
+      <h2>Giỏ hàng</h2>
+
+      <button id="closeCart">
+        ✕
+      </button>
+
+    </div>
+
+
+    <div
+      id="cartItems"
+      class="cart-items"
+    ></div>
+
+
+    <div
+      class="cart-empty"
+      id="cartEmpty"
+    >
+
+      <span>🛒</span>
+
+      <p>
+        Giỏ hàng đang trống.
+      </p>
+
+    </div>
+
+
+    <div class="cart-footer">
+
+      <div class="cart-total">
+
+        <span>
+          Tạm tính
+        </span>
+
+        <strong id="cartTotal">
+          0₫
+        </strong>
+
+      </div>
+
+
+      <button
+        class="btn btn-dark checkout-btn"
+        onclick="checkout()"
+      >
+        Thanh toán
+      </button>
+
+    </div>
+
+  </aside>
+
+
+  <!-- ================= JAVASCRIPT ================= -->
+  <script src="app.js"></script>
+
+</body>
+</html>
